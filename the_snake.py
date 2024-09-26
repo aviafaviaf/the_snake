@@ -43,9 +43,9 @@ clock = pygame.time.Clock()
 class GameObject:
     """Это базовый класс, от которого наследуются другие игровые объекты."""
 
-    def __init__(self, position, body_color):
-        self.position = position
-        self.body_color = body_color
+    def __init__(self):
+        self.position = None
+        self.body_color = None
 
     def draw(self):
         """
@@ -63,9 +63,9 @@ class Apple(GameObject):
     """
 
     def __init__(self):
-        position = (randint(0, GRID_WIDTH - 1) * GRID_SIZE,
-                    randint(0, GRID_HEIGHT - 1) * GRID_SIZE)
-        super().__init__(position, APPLE_COLOR)
+        self.position = (randint(0, GRID_WIDTH - 1) * GRID_SIZE,
+                         randint(0, GRID_HEIGHT - 1) * GRID_SIZE)
+        self.body_color = APPLE_COLOR
 
     def randomize_position(self, snake_positions):
         """Устанавливает случайную позицию яблока"""
